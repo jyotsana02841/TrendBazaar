@@ -3,38 +3,19 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
-  const [username, setUsername] = useState("mor_2314"); // Correct default username
-  const [password, setPassword] = useState("83r5^_"); // Correct default password
+  const [username, setUsername] = useState("abc"); 
+  const [password, setPassword] = useState("123");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
-    try {
-      const res = await fetch("https://fakestoreapi.com/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      });
-
-      const data = await res.json();
-
-      if (data.token) {
-        localStorage.setItem("token", data.token);
-        navigate("/");
-      } else {
-        console.error("Login failed:", data);
-        setError("Invalid username or password");
-      }
-    } catch (err) {
-      console.error("Error during login:", err);
-      setError("Something went wrong. Please try again.");
+    if (username === "abc" && password === "123") {
+      localStorage.setItem("token", "dummy_token");
+      navigate("/");
+    } else {
+      setError("Invalid username or password");
     }
   };
 

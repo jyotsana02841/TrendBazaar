@@ -18,9 +18,7 @@ const Card = ({ card }) => {
       </span>
       <div className="price">
         <span>$ {card.price}</span>
-        {/* <button className="btn" onClick={() => addToCart(card)}>
-          Add to Cart
-        </button> */}
+
         {isInCart ? (
           <button className="btn" onClick={() => removeFromCart(card.id)}>
             Remove from Cart

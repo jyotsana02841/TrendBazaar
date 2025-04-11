@@ -7,7 +7,7 @@ import { useCart } from "../CartContext";
 const Main = () => {
   const [cards, setCards] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [searchTerm, setSearchTerm] = useState(""); // 🔍 Search term
+  const [searchTerm, setSearchTerm] = useState(""); 
   const { cart, addToCart } = useCart();
 
   const categories = [

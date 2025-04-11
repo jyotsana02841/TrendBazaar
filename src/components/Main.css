@@ -70,23 +70,21 @@
 .products {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 5px;
 }
 
 .card {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 2rem;
-  padding: 1rem;
-  width: 100%;
-  box-sizing: border-box;
+  grid-template-columns: 250px 250px 250px  250px;
+  gap: 5vw;
 }
 
 .cart {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 5vh;
+
 }
 
 .searchbar {
@@ -98,13 +96,16 @@
   padding: 10px;
   width: 80%;
   max-width: 400px;
-  border-radius: 8px;
+  border-radius: 8px; 
   border: 1px solid #ccc;
-  font-size: 16px;
+  font-size: "16px";
 }
 
-/* Optional: Tweak sizes further on smaller screens */
 @media (max-width: 500px) {
+  .card {
+    grid-template-columns: 250px;
+   } 
+
   .text h1,
   .explore h1 {
     font-size: 2rem;
@@ -120,3 +121,5 @@
     align-items: center;
   }
 }
+
+/* https://colorhunt.co/ */
