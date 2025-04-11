@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
-  const [username, setUsername] = useState("abc");
+  const [username, setUsername] = useState("abcd");
   const [password, setPassword] = useState("123");
   const [error, setError] = useState("");
   const navigate = useNavigate();
