@@ -1,27 +1,30 @@
 .nav {
   display: flex;
-  justify-content: space-evenly;
-  gap: 20vw;
-  background-color: #18230F;
-  width: 100vw;
-  height: 10vh;
+  justify-content: space-between;
   align-items: center;
   background-color: #40826D;
   color: white;
+  padding: 0 2rem;
+  height: 10vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .logo {
   font-weight: bolder;
   cursor: pointer;
+  font-size: 1.5rem;
 }
 
 .logo:hover {
-  scale: 1.2;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 
 .pages {
   display: flex;
-  gap: 5vw;
+  gap: 2rem;
+  align-items: center;
 }
 
 .nav li {
@@ -31,23 +34,31 @@
 }
 
 .nav li:hover {
-  scale: 1.2;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 
-.menu:hover .dropdown{
-  display: block;
-}
-
-.nav a{
+.nav a {
   color: white;
   text-decoration: none;
+}
+
+.menu {
+  position: relative;
+  cursor: pointer;
+  display: none;
+}
+
+.menu:hover .dropdown {
+  display: block;
 }
 
 .dropdown {
   display: none;
   position: absolute;
-  top: 60px;
-  left: 80vw;
+  top: 40px;
+  right: 0;
+  z-index: 10;
 }
 
 .dropdown2 {
@@ -55,12 +66,12 @@
   background-color: white;
   color: black;
   box-shadow: 0 5px 6px grey;
-  width: 70px;
-  height: 80px;
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 120px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 2px;
+  gap: 0.5rem;
   text-align: center;
 }
 
@@ -70,7 +81,7 @@
 }
 
 .dropdown2 li:hover {
-  scale: 1.1;
+  transform: scale(1.05);
 }
 
 .cartCount {
@@ -87,28 +98,42 @@
   font-size: 12px;
   width: 20px;
   height: 20px;
-  border-radius: 50%; 
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-
 }
 
 .logout-btn {
-  background-color: #40826D;
+  background-color: transparent;
   color: white;
-  border: none;
-} 
-
-@media (min-width:500px) {
-  .menu {
-    display: none;
-  }
+  border: 1px solid white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-@media (max-width: 500px) {
+.logout-btn:hover {
+  background-color: white;
+  color: #40826D;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .pages {
+    gap: 1rem;
+  }
+
   .list {
     display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .dropdown {
+    right: 0;
   }
 }
