@@ -1,11 +1,10 @@
-// pages/Login.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
-  const [username, setUsername] = useState("abcd");
-  const [password, setPassword] = useState("123");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -17,10 +16,7 @@ const Login = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        username: "abcd",
-        password: "123",
-      }),
+      body: JSON.stringify({ username, password }),
     });
 
     const data = await res.json();
