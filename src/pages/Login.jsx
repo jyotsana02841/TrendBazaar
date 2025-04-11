@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
-  const [username, setUsername] = useState("mor_2314"); 
-  const [password, setPassword] = useState("83r5^_"); 
+  const [username, setUsername] = useState("abc");
+  const [password, setPassword] = useState("123");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -14,11 +14,13 @@ const Login = () => {
 
     const res = await fetch("https://fakestoreapi.com/auth/login", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
-        username,
-        password,
+        username: "abc",
+        password: "123",
       }),
-      headers: { "Content-Type": "application/json" },
     });
 
     const data = await res.json();

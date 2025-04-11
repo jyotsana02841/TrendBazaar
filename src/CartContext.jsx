@@ -10,19 +10,23 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (product) => {
     setCart((prev) => [...prev, product]);
-    toast.success("Item added to Cart!")
+    toast.success("Item added to Cart!");
   };
 
   const removeFromCart = (id) => {
     setCart((prev) => prev.filter((item) => item.id !== id));
-    toast.error("Item removed from Cart!")
+    toast.error("Item removed from Cart!");
   };
-  
+
+  const clearCart = () => {
+    setCart([]);
+    toast.success("Order placed successfully!");
+  };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
       {children}
-      <ToastContainer />
+      <ToastContainer autoClose={2000} />
     </CartContext.Provider>
   );
 };

@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
-  const { cart, removeFromCart } = useCart();
+  const { cart, removeFromCart, clearCart } = useCart();
 
   const totalPrice = cart.reduce((acc, item) => acc + item.price, 0).toFixed(2);
 
@@ -13,13 +13,9 @@ const Cart = () => {
       toast.error("Your cart is empty!");
       return;
     }
-    toast.success("Order placed successfully!");
-
-    setTimeout(() => {
-      localStorage.removeItem("cart"); 
-      window.location.reload();
-    }, 4000);
-  };
+  
+    clearCart();
+  }
 
   return (
     <div className="cart">
