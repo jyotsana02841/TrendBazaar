@@ -1,0 +1,112 @@
+.content {
+  height: 90vh;
+  
+}
+
+.text {
+  padding: 7vw;
+  font-size: 20px;
+}
+
+.text h1 {
+  font-size: 60px;
+  color: #478778;
+}
+
+.boxes {
+  display: flex;
+  align-items: center;
+  gap: 3vw;
+}
+
+.box {
+  width: 8vw;
+  height: 5vw;
+  padding: 2px;
+  display: flex;
+  text-align: center;
+  font-weight: bold;
+  align-items: center;
+  background-color: #ACD3A8;
+  border-radius: 7px;
+}
+
+.box:hover {
+  scale: 1.2;
+}
+
+.explore {
+  background-color: #ACD3A8;
+}
+
+.explore h1{
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  color: #18230F;
+}
+
+.categories {
+  display: flex;
+  justify-content: space-around;
+  font-weight: 900;
+  padding: 7px;
+  color: #27391C;
+}
+
+.categories li {
+  cursor: pointer;
+  list-style: none;
+}
+
+.categories li:hover {
+  scale: 1.2;
+}
+
+.products {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 250px 250px 250px  250px;
+  gap: 5vw;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5vh;
+
+}
+
+.searchbar {
+  text-align: center;
+  margin: 20px;
+}
+
+.searchbar input {
+  padding: 10px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px; 
+  border: 1px solid #ccc;
+  font-size: "16px";
+}
+
+@media (max-width: 640px) {
+ .card {
+  grid-template-columns: 250px;
+ } 
+
+ .box {
+  width: 25vw;
+  height: 15vh;
+  font-size: 15px;
+ }
+}
+
+/* https://colorhunt.co/ */

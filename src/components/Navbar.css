@@ -1,0 +1,109 @@
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20vw;
+  background-color: #18230F;
+  width: 100vw;
+  height: 10vh;
+  align-items: center;
+  background-color: #40826D;
+  color: white;
+}
+
+.logo {
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.logo:hover {
+  scale: 1.2;
+}
+
+.pages {
+  display: flex;
+  gap: 5vw;
+}
+
+.nav li {
+  list-style: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav li:hover {
+  scale: 1.2;
+}
+
+.menu:hover .dropdown{
+  display: block;
+}
+
+.nav a{
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 80vw;
+}
+
+.dropdown2 {
+  list-style: none;
+  background-color: white;
+  color: black;
+  box-shadow: 0 5px 6px grey;
+  width: 70px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  text-align: center;
+}
+
+.dropdown2 li:hover {
+  scale: 1.1;
+}
+
+.cartCount {
+  position: relative;
+  display: inline-block;
+}
+
+.cartCount2 {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: white;
+  color: #18230F;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+
+}
+
+.logout-btn {
+  background-color: #40826D;
+  color: white;
+  border: none;
+}
+
+@media (min-width:500px) {
+  .menu {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .list {
+    display: none;
+  }
+}
