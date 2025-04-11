@@ -1,4 +1,10 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Main from "./components/Main";
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
@@ -7,32 +13,36 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token); // convert token to boolean
+  }, []);
+
   return (
     <Router>
-      {localStorage.getItem("token") && <Navbar />}
+      {isLoggedIn && <Navbar />}
 
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={<Login setIsLoggedIn={setIsLoggedIn} />}
+        />
 
         <Route
           path="/"
-          element={
-            localStorage.getItem("token") ? <Main /> : <Navigate to="/login" />
-          }
+          element={isLoggedIn ? <Main /> : <Navigate to="/login" />}
         />
 
         <Route
           path="/cart"
-          element={
-            localStorage.getItem("token") ? <Cart /> : <Navigate to="/login" />
-          }
+          element={isLoggedIn ? <Cart /> : <Navigate to="/login" />}
         />
 
         <Route
           path="*"
-          element={
-            <Navigate to={localStorage.getItem("token") ? "/" : "/login"} />
-          }
+          element={<Navigate to={isLoggedIn ? "/" : "/login"} />}
         />
       </Routes>
 
