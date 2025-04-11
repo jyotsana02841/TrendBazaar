@@ -120,6 +120,13 @@
   transition: all 0.3s ease;
 }
 
+.dd-logout {
+  color: black !important;
+  background-color: white;
+  border: none;
+  font-weight: bold;
+}
+
 @media (max-width: 768px) {
   .pages {
     gap: 1rem;

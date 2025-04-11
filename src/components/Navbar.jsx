@@ -51,7 +51,7 @@ const Navbar = () => {
                 </li>
                 <hr />
                 <li>
-                  <button onClick={handleLogout} className="logout-btn">
+                  <button onClick={handleLogout} className="dd-logout">
                     Logout
                   </button>
                 </li>
