@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
-const Login = () => {
-  const [username, setUsername] = useState("abc"); 
+const Login = ({ setIsLoggedIn }) => {
+  const [username, setUsername] = useState("abc");
   const [password, setPassword] = useState("123");
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -13,6 +13,7 @@ const Login = () => {
 
     if (username === "abc" && password === "123") {
       localStorage.setItem("token", "dummy_token");
+      setIsLoggedIn(true);
       navigate("/");
     } else {
       setError("Invalid username or password");
