@@ -19,7 +19,7 @@ input, button {
   padding: 10px;
 }
 
-.error {
+.errors {
   color: red;
   font-size: 0.9em;
 }

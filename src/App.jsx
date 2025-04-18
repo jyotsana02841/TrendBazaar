@@ -15,37 +15,40 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(token); 
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   setIsLoggedIn(token);
+  // }, []);
 
   return (
     <Router>
-      {isLoggedIn && <Navbar />}
+      <Navbar setIsLoggedIn={setIsLoggedIn} />
+      {/* <Route
+        exact
+        path="start"
+        element={loggedIn ? <Start /> : <Navigate replace to={"/"} />}
+      />
+      Basic */}
 
       <Routes>
         <Route
           path="/login"
-          element={<Login setIsLoggedIn={setIsLoggedIn} />}
+          element={
+            <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+          }
         />
-
         <Route
+          exact
           path="/"
-          element={isLoggedIn ? <Main /> : <Navigate to="/login" />}
+          element={isLoggedIn ? <Main /> : <Navigate replace to={"/login"} />}
         />
 
         <Route
+          exact
           path="/cart"
-          element={isLoggedIn ? <Cart /> : <Navigate to="/login" />}
-        />
-
-        <Route
-          path="*"
-          element={<Navigate to={isLoggedIn ? "/" : "/login"} />}
+          element={isLoggedIn ? <Cart /> : <Navigate replace to={"/login"} />}
         />
       </Routes>
-
       <ToastContainer
         position="top-right"
         autoClose={3000}

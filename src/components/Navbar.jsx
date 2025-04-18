@@ -3,12 +3,12 @@ import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../CartContext";
 
-const Navbar = () => {
+const Navbar = ({setIsLoggedIn}) => {
   const { cart } = useCart();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    setIsLoggedIn(false);
     navigate("/login");
   };
 

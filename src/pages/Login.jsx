@@ -1,48 +1,57 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { Navigate } from "react-router-dom";
 import "./Login.css";
 
-const Login = ({ setIsLoggedIn }) => {
-  const [username, setUsername] = useState("abc");
-  const [password, setPassword] = useState("123");
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
+const Login = ({ isLoggedIn, setIsLoggedIn }) => {
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors, isSubmitting },
+  } = useForm();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-
-    if (username === "abc" && password === "123") {
-      localStorage.setItem("token", "dummy_token");
-      setIsLoggedIn(true);
-      navigate("/");
-    } else {
-      setError("Invalid username or password");
-    }
+  const onsubmit = (data) => {
+    setIsLoggedIn(true);
+    console.log(data);
   };
+
+  if (isLoggedIn) {
+    return <Navigate to="/" replace />;
+  }
 
   return (
     <div className="login-container">
-      <form onSubmit={handleLogin}>
-        <h2>Login</h2>
-        {error && <p className="error">{error}</p>}
-
+      {isSubmitting && <div>Loading...</div>}
+      <form action="" onSubmit={handleSubmit(onsubmit)}>
         <input
           type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
+          {...register("username", {
+            required: { value: true, message: "This field in necessary..." },
+            minLength: { value: 3, message: "Min Length is 8" },
+          })}
+          placeholder="username"
         />
+        <br />
+
+        {errors.username && <div className="errors">{errors.username.message}</div>}
 
         <input
           type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
+          {...register("password", {
+            required: { value: true, message: "This field is necessary..." },
+            minLength: {
+              value: 8,
+              message: "Password should be minimum 8 length...",
+            },
+          })}
+          placeholder="password"
         />
+        <br />
 
-        <button type="submit">Login</button>
+        {errors.password && <div className="errors">{errors.password.message}</div>}
+
+        <input type="submit" value="Login" disabled={isSubmitting} />
       </form>
     </div>
   );
